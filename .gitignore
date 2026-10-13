@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Model weights & caches (large, never commit)
+models/weights/*.safetensors
+models/weights/*.bin
+models/weights/*.onnx
+.cache/huggingface/
+.cache/torch/
+*.pt
+*.pth
+
+# Runtime outputs
+outputs/
+logs/
+*.log
+.captions.json
+*.prompt.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local config overrides
+config/local.yaml
+config/secrets.env
