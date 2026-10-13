@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "image-to-prompt-reverse"
+version = "2026.3.0"
+description = "Reverse-engineer text prompts from images — a modular Windows desktop toolkit."
+readme = "CONTRIBUTING.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "i2p contributors" }]
+keywords = ["reverse-prompt", "image-to-prompt", "clip-interrogator", "blip", "wd14", "captioning"]
+
+dependencies = [
+  "torch>=2.4,<3.0",
+  "transformers>=4.44",
+  "safetensors>=0.4.3",
+  "Pillow>=10.4",
+  "numpy>=1.26",
+  "PySide6>=6.7",
+  "PyYAML>=6.0",
+  "pydantic>=2.8",
+  "rich>=13.7",
+  "click>=8.1",
+  "ftfy>=6.2",
+]
+
+[project.scripts]
+i2p = "i2p.cli:main"
+
+[project.entry-points."i2p.backends"]
+clip_interrogator = "i2p.backends.clip_interrogator:CLIPInterrogatorBackend"
+wd14_tagger = "i2p.backends.wd14_tagger:WD14TaggerBackend"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.mypy]
+strict = true
+files = ["src/i2p/core", "src/i2p/backends"]
