@@ -1,0 +1,31 @@
+# image-to-prompt-reverse — default config (2026.03)
+device: auto            # auto | cuda | cpu | mps
+precision: fp16         # fp16 | bf16 | fp32
+cache_dir: .cache/i2p
+
+backends:
+  clip_interrogator:
+    enabled: true
+    clip_model: ViT-L-14/openai
+    caption_model: blip-large
+    flavor: best
+  wd14_tagger:
+    enabled: true
+    model: SmilingWolf/wd-v1-4-convnext-tagger-v2
+    threshold: 0.35
+
+pipeline:
+  fusion: weighted        # weighted | concat | first
+  max_tokens: 77
+  strip_artist_tags: false
+  dedupe: true
+
+gui:
+  theme: dark
+  thumbnail_size: 256
+  autosave_history: true
+  history_path: outputs/history.jsonl
+
+logging:
+  level: INFO
+  file: logs/i2p.log
